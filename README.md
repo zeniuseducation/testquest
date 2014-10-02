@@ -1,14 +1,35 @@
-# testquest
+# Testquest
 
-A Clojure library designed to ... well, that part is up to you.
+A Clojure library for a very simple test to encourage beginners starting to embrace TDD.
 
 ## Usage
 
-FIXME
+In your project.clj
+
+[![Clojars Project](http://clojars.org/zenedu/testquest/latest-version.svg)](http://clojars.org/zenedu/testquest)
+
+## Testing
+
+Only two macros available in testquest.core namespace, testing and testing-let. You might want to use lein-autoexpect for automatic testing for expectations. 
+
+```clojure
+
+(ns mytest.core 
+  (:require [testquest.core :refer :all]))
+
+(testing "description"
+         5
+         (+ 2 3))
+         
+(testing-let "desxription"
+             [x (+ 5 5)]
+             x 
+             (+ 5 5))
+            
+```
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 PT Zenius Education
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the EPL v1.0
