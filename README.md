@@ -1,6 +1,6 @@
 # Testquest
 
-A Clojure library for a very simple test to encourage beginners starting to embrace TDD.
+A Clojure micro test-framework based on expectations, only provide a simple tweak to expectations so the running tests show some test descriptions. Written to encourage beginners to embrace TDD.
 
 ## Usage
 
@@ -10,21 +10,24 @@ In your project.clj
 
 ## Testing
 
-Only two macros available in testquest.core namespace, testing and testing-let. You might want to use lein-autoexpect for automatic testing for expectations. 
+Only two macros available in testquest.core namespace, testing and testing-let. You might want to use [lein-autoexpect] (https://github.com/jakemcc/lein-autoexpect) for automatic testing using expectations. 
+
+
 
 ```clojure
 
 (ns mytest.core 
-  (:require [testquest.core :refer :all]))
+  (:require [testquest.core :refer :all]
+            [expectations :refer :all]))
 
 (testing "description"
-         5
-         (+ 2 3))
+         5 ; expected
+         (+ 2 3)) ; testing form
          
 (testing-let "desxription"
-             [x (+ 5 5)]
-             x 
-             (+ 5 5))
+             [x (+ 5 5)]  ; binding (let)
+             x  ; expected
+             (+ 5 5))  ; testing form
             
 ```
 
